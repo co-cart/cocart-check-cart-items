@@ -10,7 +10,7 @@ You will need to be using [CoCart **v2.1**](https://wordpress.org/plugins/cart-r
 
 ## Download
 
-[Click here to download](https://github.com/co-cart/cocart-check-cart-items/archive/master.zip) the latest release package of CoCart.
+[Click here to download](https://github.com/co-cart/cocart-check-cart-items/archive/master.zip) the latest release package of CoCart - Check Cart Items.
 
 ## Bug Reporting
 

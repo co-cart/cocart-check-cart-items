@@ -1,0 +1,67 @@
+{
+	"title": "CoCart - Check Cart Items",
+	"name": "cocart-check-cart-items",
+	"version": "1.1.0",
+	"private": false,
+	"contributors": [
+		"sebd86",
+		"cocartforwc"
+	],
+	"author": "Sébastien Dumont",
+	"author_uri": "https://sebastiendumont.com",
+	"homepage": "https://cocart.xyz/",
+	"main": "Gruntfile.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/co-cart/cocart-check-cart-items.git"
+	},
+	"bugs": {
+		"url": "https://github.com/co-cart/cocart-check-cart-items/issues"
+	},
+	"requires": "5.3",
+	"requires_php": "7.0",
+	"tested_up_to": "5.6",
+	"wc_requires": "4.3",
+	"wc_tested_up_to": "4.8",
+	"license": "GPL-3.0",
+	"copyright": "Copyright (c) 2020, Sébastien Dumont",
+	"description": "Checks items in the cart for validity and stock. Updates the cart before the cart returns what remains and returns a notice for each item changed.",
+	"tags": "",
+	"keywords": [
+		"wordpress",
+		"wordpress-development",
+		"feature-plugin",
+		"plugin",
+		"woocommerce",
+		"woocommerce-api",
+		"woocommerce-extension",
+		"woocommerce-plugin",
+		"e-commerce",
+		"api",
+		"cart",
+		"rest",
+		"rest-api",
+		"JSON"
+	],
+	"scripts": {
+		"test": "grunt",
+		"build": "grunt build",
+		"version": "grunt version",
+		"update": "grunt update-pot",
+		"release": "grunt zip"
+	},
+	"devDependencies": {
+		"grunt": "1.3.0",
+		"grunt-checktextdomain": "1.0.1",
+		"grunt-contrib-clean": "2.0.0",
+		"grunt-contrib-compress": "1.6.0",
+		"grunt-contrib-copy": "1.0.0",
+		"grunt-dev-update": "2.3.0",
+		"grunt-newer": "1.3.0",
+		"grunt-potomo": "3.5.0",
+		"grunt-text-replace": "0.4.0",
+		"grunt-wp-i18n": "1.0.3",
+		"load-grunt-tasks": "5.1.0"
+	},
+	"dependencies": {}
+}

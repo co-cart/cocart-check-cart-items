@@ -5,7 +5,7 @@
  * Description: Checks items in the cart for validity and stock. Updates the cart before the cart returns what remains and returns a notice for each item changed.
  * Author:      Sébastien Dumont
  * Author URI:  https://sebastiendumont.com
- * Version:     1.0.0
+ * Version:     1.1.0
  * Text Domain: cocart-check-cart-items
  * Domain Path: /languages/
  *
@@ -33,7 +33,10 @@ if ( ! class_exists( 'CoCart_Check_Cart_Items' ) ) {
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 			// Check cart items.
-			add_filter( 'cocart_return_cart_contents', array( $this, 'check_cart_items' ), 98 );
+			add_filter( 'cocart_return_cart_contents', array( $this, 'check_cart_items' ), 97 );
+
+			// Check cart coupons.
+			add_filter( 'cocart_return_cart_contents', array( $this, 'check_cart_coupons' ), 98 );
 
 			// Plugin activation and deactivation.
 			register_activation_hook( __FILE__, array( $this, 'activated' ) );
@@ -147,6 +150,25 @@ if ( ! class_exists( 'CoCart_Check_Cart_Items' ) ) {
 
 			return true;
 		} // END check_cart_item_stock()
+
+		/**
+		 * Check cart coupons for errors.
+		 *
+		 * @access public
+		 * @since  1.1.0
+		 */
+		public function check_cart_coupons() {
+			$cart = WC()->cart;
+
+			foreach ( $cart->get_applied_coupons() as $code ) {
+				$coupon = new WC_Coupon( $code );
+
+				if ( ! $coupon->is_valid() ) {
+					$coupon->add_coupon_message( 101 );
+					$cart->remove_coupon( $code );
+				}
+			}
+		} // END check_cart_coupons()
 
 		/**
 		 * Runs when the plugin is activated.
